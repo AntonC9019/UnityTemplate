@@ -15,7 +15,7 @@ Steps to setup a Unity repo:
 
 4. Run `git lfs install` in the root of the repo to make sure that Git LFS is enabled.
    
-5. Add the unity folder into the project.
+5. Add the unity folders into the project.
    You can check if Git LFS works correctly by showing the diff for a large file, like an FBX, in the console (first I'm staging it, then showing the diff):
    ```
    git add something.fbx
