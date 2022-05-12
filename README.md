@@ -15,6 +15,11 @@ Steps to setup a Unity repo:
    When using git for the first time, however, it will require you to log in.
    As the username, type in your login from GitHub, and for the password you need to type in your access token.
    See [this](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) to find out how to create one (be sure to give it access to your repos, when creating).
+   After that, configure your name and email in git in the terminal, otherwise it may hand forever while pushing commits.
+   ```
+   git config --global user.name YourGitHubNameHere
+   git config --global user.email YourGitHubEmailHere
+   ``` 
 
 4. Run `git lfs install` in the root of the repo to make sure that Git LFS is enabled.
    
@@ -42,7 +47,7 @@ Steps to setup a Unity repo:
    git commit -m "Commit Unity files"
    ```
 
-7. Commit the changes to the remote. This one may hang forever on 100% completion, in which case you should check if the commit has appeared on the remote, and then you can safely kill the hanging process in the terminal.
+7. Commit the changes to the remote.
    ```
    git push
    ```
