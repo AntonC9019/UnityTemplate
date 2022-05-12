@@ -10,8 +10,11 @@ Steps to setup a Unity repo:
 
 3. Clone the repository onto your computer. You can use a graphical tool like GitHub Desktop, or just do:
    ```
-   git clone link-to-repo
+   git clone https://github.com/repo-user-name/repo-name
    ```
+   When using git for the first time, however, it will require you to log in.
+   As the username, type in your login from GitHub, and for the password you need to type in your access token.
+   See [this](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) to find out how to create one (be sure to give it access to your repos, when creating).
 
 4. Run `git lfs install` in the root of the repo to make sure that Git LFS is enabled.
    
@@ -39,7 +42,7 @@ Steps to setup a Unity repo:
    git commit -m "Commit Unity files"
    ```
 
-7. Commit the changes to the remote. This one may hang forever on 100% completion, in which case you should check if the commit has appeared on the remote, and then you can safely kill it.
+7. Commit the changes to the remote. This one may hang forever on 100% completion, in which case you should check if the commit has appeared on the remote, and then you can safely kill the hanging process in the terminal.
    ```
    git push
    ```
@@ -61,4 +64,14 @@ git commit -m "Commmit project files"
 
 # Rewrite the git history on the remote
 git push --force-with-lease
+```
+
+At this point, it's important that other people who work with the repository, and still have the files that must have been ignored, do a fetch, and NOT commit the changes that they are shown.
+Instead, they should do a hard reset to the remote's main branch:
+```
+# Get changes from the remote.
+git fetch
+
+# Reset to the remote's git history
+git reset --hard origin/main 
 ```
