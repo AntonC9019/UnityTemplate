@@ -1,4 +1,5 @@
-Steps to setup:
+Steps to setup a Unity repo:
+
 1. Create a new repository from this repository (there's some "use template" button on github).
 
 2. Make sure you have both `git` and `git-lfs` installed. If you're on mac, install these via Homebrew.
@@ -12,10 +13,23 @@ brew install git-lfs
 git clone link-to-repo
 ```
 
-4. Add the unity folder into the project.
-   I think you also need to run `git lfs install` in the root of the repo, though you can also check whether it is enabled by viewing the way that a large file, like an FBX, was commited (it should show you the hash of the file), which you can do in VSCode or GitHub Desktop by clicking on the diff of one of such FBX files.
+4. Run `git lfs install` in the root of the repo to make sure that Git LFS is enabled.
+   
+5. Add the unity folder into the project.
+   You can check if Git LFS works correctly by showing the diff for a large file, like an FBX, in the console (first I'm staging it, then showing the diff):
+```
+git add something.fbx
+git diff --cached something.fbx
+```
+   The output should be something like this:
+```
++version https://git-lfs.github.com/spec/v1
++oid sha256:8f6717567b76aea297d723fe7725fe176105cd9bc29116aebfc6ff0afc4f929b
++size 56646
+```
+   You can also check if it works in GitHub Desktop by clicking one of the changes and seeing the diff on the right.
 
-5. Stage all added things. This command may take a while to process, because unity projects can potentially have thousands of files.
+5. Stage all added things. This command may take a while to process, because Unity projects can potentially have thousands of files.
 ```
 git add --all
 ```
